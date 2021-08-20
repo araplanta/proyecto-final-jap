@@ -1,15 +1,19 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-const loginForm = document.getElementById("login-form");
+function login(){
+    let user = document.getElementById("floatingInput").value;
+    let password = document.getElementById("floatingPassword").value;
+    if((user !=="") &&(password !=="")){
+        window.location.href="home.html";
+    }
+    else{
+        alert("Debe completar los campos");
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function(e){
-    const username = loginForm.login.value;
-    const password = loginForm.password.value;
-    if (username === "prueba@prueba.com" && password === "prueba") {
-        alert("WE DID IT!!!");
-        location.reload();
-    } else {
-        alert("Correo electrónico y/o contraseña incorrecta, por favor vuelve a intentarlo");
-    }
+    document.getElementById("buttonLogin").addEventListener("click", function(event){
+        login();
+    })
 });

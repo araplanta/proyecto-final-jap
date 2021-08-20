@@ -162,3 +162,7 @@ a.custom-card:hover {
 .label {
   float: left;
 }
+#minilogin{
+  float:initial;
+  width: 80%;
+}
