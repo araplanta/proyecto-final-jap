@@ -139,6 +139,8 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+/* Estilos del login */
 .login {
   min-height: 100vh;
 }

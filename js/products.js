@@ -1,6 +1,4 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+//Esta función crea los elementos necesarios en el HTML para mostrar el listado de productos de forma estructurada
 function showProductsList(){
 
     let htmlContentToAppend = "";
@@ -27,8 +25,9 @@ function showProductsList(){
 
         document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
-
-
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
