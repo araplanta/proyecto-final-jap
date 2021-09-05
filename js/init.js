@@ -39,10 +39,10 @@ var getJSONData = function(url){
         return result;
     });
 }
-//Función que agarra el nombre de usuaria/o guardado en local storage y lo agrega al nav del sitio web
+//Función que toma el nombre de usuaria/o guardado en local storage y lo agrega al nav del sitio web
 function getUsuaria(){
   let usuaria = localStorage.getItem("user");
-  document.getElementById("navi").innerHTML += `<span class="py-2 d-none d-md-inline-block"> ${usuaria}</span>`;
+  document.getElementById("navi").innerHTML += `<div class="py-2 d-none d-md-inline-block">${usuaria}</div>`;
   //document.getElementById("gato").innerHTML += usuaria
 }
 

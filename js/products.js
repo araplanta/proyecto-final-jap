@@ -1,4 +1,4 @@
-
+//Variables y constantes de utilidad para las funciones de filtrado y muestra de contenido
 var currentproductsArray = [];
 const ORDER_BY_PROD_RELEVANCE = "Rel."
 const ORDER_ASC_BY_PRICE = "1-9";
@@ -8,6 +8,8 @@ var currentSortCriteria = undefined;
 var minPrice = undefined;
 var maxPrice = undefined;
 
+
+//Función que realiza algunos de los filtros (por relevancia, orden de menor a mayor precio y viceversa)
 function sortProducts(criteria, array) {
     let result = [];
     if (criteria === ORDER_BY_PROD_RELEVANCE) {
@@ -36,9 +38,9 @@ function sortProducts(criteria, array) {
     return result;
 }
 
+
 //Esta función crea los elementos necesarios en el HTML para mostrar el listado de productos de forma estructurada
 function showProductsList() {
-
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
         let product = currentProductsArray[i];
@@ -68,18 +70,20 @@ function showProductsList() {
     }
 }
 
+
+//Función que ordena los productos según el filtro elegido y los muestra en el sitio web
 function sortAndShowProducts(sortCriteria, productsArray) {
     currentSortCriteria = sortCriteria;
 
     if (productsArray != undefined) {
         currentProductsArray = productsArray;
     }
-
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
     //Muestro los productos ordenados
     showProductsList();
 }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -88,19 +92,23 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             currentProductsArray = resultObj.data;
-            //Muestro los productos
-            showProductsList(currentProductsArray);
+            //Muestra los productos según su orden predeterminado
+            showProductsList();
         }
     });
+    //Muestra los productos ordenados por relevancia
     document.getElementById("sortByRelevance").addEventListener("click", function () {
         sortAndShowProducts(ORDER_BY_PROD_RELEVANCE);
     });
+    //Muestra los productos ordenados de menor a mayor según su precio
     document.getElementById("sortAsc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_ASC_BY_PRICE);
     });
+    //Muestra los productos ordenados de mayor a menor según su precio
     document.getElementById("sortDesc").addEventListener("click", function () {
         sortAndShowProducts(ORDER_DESC_BY_PRICE);
     });
+    //Limpia los campos destinados a ingresar rango de precio
     document.getElementById("clearRangeFilter").addEventListener("click", function () {
         document.getElementById("rangePriceMin").value = "";
         document.getElementById("rangePriceMax").value = "";
@@ -111,8 +119,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsList();
     });
     document.getElementById("rangeFilterPrice").addEventListener("click", function () {
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por el precio
-        //de los productos.
+        //Obtengo el mínimo y máximo de los intervalos para filtrar por el precio de los productos.
         minPrice = document.getElementById("rangePriceMin").value;
         maxPrice = document.getElementById("rangePriceMax").value;
 
