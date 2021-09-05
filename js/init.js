@@ -39,9 +39,16 @@ var getJSONData = function(url){
         return result;
     });
 }
+//Función que agarra el nombre de usuaria/o guardado en local storage y lo agrega al nav del sitio web
+function getUsuaria(){
+  let usuaria = localStorage.getItem("user");
+  document.getElementById("navi").innerHTML += `<span class="py-2 d-none d-md-inline-block"> ${usuaria}</span>`;
+  //document.getElementById("gato").innerHTML += usuaria
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  getUsuaria();
 });

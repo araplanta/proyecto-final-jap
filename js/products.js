@@ -1,9 +1,36 @@
+
+var currentproductsArray = [];
+const ORDER_BY_PROD_PRICE = "Price";
+var currentSortCriteria = undefined;
+var minPrice = undefined;
+var maxPrice = undefined;
+
+function sortProducts(criteria, array){
+    let result = [];
+    if (criteria === ORDER_BY_PROD_PRICE){
+        result = array.sort(function(a, b) {
+            let aCount = parseInt(a.productCount);
+            let bCount = parseInt(b.productCount);
+
+            if ( aCount > bCount ){ return -1; }
+            if ( aCount < bCount ){ return 1; }
+            return 0;
+        });
+    }
+
+    return result;
+}
+
+
 //Esta función crea los elementos necesarios en el HTML para mostrar el listado de productos de forma estructurada
 function showProductsList(){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsArray.length; i++){
         let product = currentProductsArray[i];
+        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
+
             htmlContentToAppend += `
             <a href="category-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
@@ -24,7 +51,22 @@ function showProductsList(){
         }
 
         document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
+        }
     }
+
+    function sortAndShowProducts(sortCriteria, productsArray){
+        currentSortCriteria = sortCriteria;
+    
+        if(productsArray != undefined){
+            currentProductsArray = productsArray;
+        }
+    
+        currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
+    
+        //Muestro las categorías ordenadas
+        showProductsList();
+    }
+    
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

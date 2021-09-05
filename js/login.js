@@ -3,11 +3,17 @@ function login(){
     let user = document.getElementById("floatingUser").value;
     let password = document.getElementById("floatingPassword").value;
     if((user !=="") &&(password !=="")){
+        setUsuaria();
         window.location.href="home.html"; //Por default al ingresar se abrirá primero la página principal
     }
     else{
         alert("Debe completar los campos");
     }
+}
+//Función que toma el nombre de usuaria/o y lo guarda en local storage
+function setUsuaria(){
+    let usuaria = document.getElementById("floatingUser").value;
+    localStorage.setItem("user", usuaria);
 }
 
 //Función que, al detectar que se ha hecho click en el botón de Entrar, llama a la función login() para que realice las validaciones
