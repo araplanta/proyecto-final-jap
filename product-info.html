@@ -10,6 +10,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -59,9 +60,29 @@
           <div class="row text-center text-lg-left pt-2" id="productImages">
           </div>
         </dd>
-        <dt>Productos relacionados</dt>
+        <dt>Comentarios</dt>
         <dd>
-          <p id="productRelated"></p>
+          <p id="commentsPublicados"></p>
+          <div class="container bootdey">
+            <div class="col-md-12 bootstrap snippets">
+            <div class="panel">
+              <div class="panel-body">
+                <form>
+                <textarea class="form-control" rows="2" placeholder="¿Qué opinas de este producto?" id="comment"></textarea>
+                <div class="mar-top clearfix">
+                  <label for="stars">Puntuación:</label>
+                  <select id="stars">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                  </select>
+                  <button class="btn btn-sm btn-primary pull-right" type="submit" id="enviarComment">Enviar</button>
+                </form>
+                </div>
+              </div>
+            </div>
         </dd>
       </dl>
     </div>
