@@ -46,24 +46,24 @@ function showProductComments() {
     });
 }
 
-//Función que muestra los productos relacionados al producto principal
-function showRelated(array){
-    getJSONData(PRODUCTS_URL).then(resultObj=>{
-        if(resultObj.status === "ok"){
+//Función que muestra los productos relacionados al productos
+function showRelated(array) {
+    getJSONData(PRODUCTS_URL).then(resultObj => {
+        if (resultObj.status === "ok") {
             products = resultObj.data;
             let htmlContentToAppend = "";
-        for(let i = 0; i< array.length; i++){
-            let relatedProd = products[i];
-            htmlContentToAppend +=
-            `<a href="#"><div><div class="card" style="width: 18rem;">
+            for (productNumber of array) {
+                let relatedProd = products[productNumber];
+                htmlContentToAppend +=
+                    `<a href="#"><div><div class="card" style="width: 18rem;">
             <img class="card-img-top" src="` + relatedProd.imgSrc + `"alt="Card image cap">
             <div class="card-body">
-              <p class="card-text">`+ relatedProd.name +`</p>
+              <p class="card-text">`+ relatedProd.name + `</p>
             </div>
           </div></div></a>`
-        }
+            }
 
-        document.getElementById("relatedContainer").innerHTML += htmlContentToAppend;
+            document.getElementById("relatedContainer").innerHTML += htmlContentToAppend;
         }
     })
 }
