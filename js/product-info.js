@@ -46,24 +46,24 @@ function showProductComments() {
     });
 }
 
-//Función que muesttra los productos relacionados
+//Función que muestra los productos relacionados
 function showRelated(array){
     getJSONData(PRODUCTS_URL).then(resultObj=>{
         if(resultObj.status === "ok"){
             products = resultObj.data;
             let htmlContentToAppend = "";
-    
-            htmlContentToAppend +=`<dt>Productos relacionados</dt>`
         for(let i = 0; i< array.length; i++){
             let relatedProd = products[i];
             htmlContentToAppend +=
-            `
-                <dd>
-                    <p>`+ relatedProd.name +`</p>
-                </dd>`
+            `<a href="#"><div><div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="` + relatedProd.imgSrc + `"alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">`+ relatedProd.name +`</p>
+            </div>
+          </div></div></a>`
         }
 
-        document.getElementById("productInformation").innerHTML += htmlContentToAppend;
+        document.getElementById("relatedContainer").innerHTML += htmlContentToAppend;
         }
     })
 }
