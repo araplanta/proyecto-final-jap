@@ -1,4 +1,7 @@
 var product = {};
+var products = {};
+var relatedProd = {};
+var related = {};
 //Función que muestra las imágenes del producto de forma ordenada
 function showImages(array) {
     let htmlContentToAppend = "";
@@ -42,6 +45,29 @@ function showProductComments() {
         }
     });
 }
+
+//Función que muesttra los productos relacionados
+function showRelated(array){
+    getJSONData(PRODUCTS_URL).then(resultObj=>{
+        if(resultObj.status === "ok"){
+            products = resultObj.data;
+            let htmlContentToAppend = "";
+    
+            htmlContentToAppend +=`<dt>Productos relacionados</dt>`
+        for(let i = 0; i< array.length; i++){
+            let relatedProd = products[i];
+            htmlContentToAppend +=
+            `
+                <dd>
+                    <p>`+ relatedProd.name +`</p>
+                </dd>`
+        }
+
+        document.getElementById("productInformation").innerHTML += htmlContentToAppend;
+        }
+    })
+}
+
 
 //Función para cargar un nuevo comentario a la página del producto
 function newComment() {
@@ -96,9 +122,26 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showImages(product.images);
             //Muestro los comentarios ya existentes
             showProductComments();
+            //mustra related
+            showRelated(product.relatedProducts)
         }
     });
 });
+
+/*
+//Muestro los productos relacionados
+document.addEventListener("DOMContentLoaded",function(e){
+    getJSONData(PRODUCTS_URL).then(resultObj=>{
+        if(resultObj.status === "ok"){
+            products = resultObj.data;
+            related = products.relatedProd;
+            //showRelated();
+        }
+    })
+   
+})
+*/
+
 //Muestro el nuevo comentario
 document.getElementById("enviarComment").addEventListener("click", function () {
     newComment();

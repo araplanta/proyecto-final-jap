@@ -42,13 +42,36 @@ var getJSONData = function(url){
 //Función que toma el nombre de usuaria/o guardado en local storage y lo agrega al nav del sitio web
 function getUsuaria(){
   let usuaria = localStorage.getItem("user");
-  document.getElementById("navi").innerHTML += `<div class="py-2 d-none d-md-inline-block">${usuaria}</div>`;
-  //document.getElementById("gato").innerHTML += usuaria
+  document.getElementById("navi").innerHTML += 
+    `<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ${usuaria}
+    </a>
+  
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" href="cart.html">Mi carrito</a>
+      <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+      <option class="dropdown-item" id= "logout" value="">Cerrar sesión</option>
+    </div>
+  </div>`;
 }
+
+//Función que cierra la sesión del usuario en el sitio web
+function logOut(){
+  localStorage.removeItem("user");
+  window.location.href="index.html";
+}
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
   getUsuaria();
+});
+
+document.addEventListener("DOMContentLoaded", function(e){
+  document.getElementById("logout").addEventListener("click", function(event){
+    logOut();
+  })
 });
