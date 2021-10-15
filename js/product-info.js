@@ -46,7 +46,7 @@ function showProductComments() {
     });
 }
 
-//Función que muestra los productos relacionados
+//Función que muestra los productos relacionados al producto principal
 function showRelated(array){
     getJSONData(PRODUCTS_URL).then(resultObj=>{
         if(resultObj.status === "ok"){
@@ -122,25 +122,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showImages(product.images);
             //Muestro los comentarios ya existentes
             showProductComments();
-            //mustra related
+            //Muestro los productos relacionados
             showRelated(product.relatedProducts)
         }
     });
 });
 
-/*
-//Muestro los productos relacionados
-document.addEventListener("DOMContentLoaded",function(e){
-    getJSONData(PRODUCTS_URL).then(resultObj=>{
-        if(resultObj.status === "ok"){
-            products = resultObj.data;
-            related = products.relatedProd;
-            //showRelated();
-        }
-    })
-   
-})
-*/
 
 //Muestro el nuevo comentario
 document.getElementById("enviarComment").addEventListener("click", function () {

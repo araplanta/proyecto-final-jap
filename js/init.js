@@ -39,7 +39,8 @@ var getJSONData = function(url){
         return result;
     });
 }
-//Función que toma el nombre de usuaria/o guardado en local storage y lo agrega al nav del sitio web
+//Función que toma el nombre de usuaria/o guardado en local storage y lo agrega al nav del sitio web en forma de drop-down menu
+//con optiones para dirigirge al carrito de compras, al perfil propio y cerrar sesión
 function getUsuaria(){
   let usuaria = localStorage.getItem("user");
   document.getElementById("navi").innerHTML += 
@@ -70,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function(e){
   getUsuaria();
 });
 
+
+//Evento on-click que ejecuta la función para cerrar sesión
 document.addEventListener("DOMContentLoaded", function(e){
   document.getElementById("logout").addEventListener("click", function(event){
     logOut();
