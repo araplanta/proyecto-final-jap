@@ -46,7 +46,7 @@ function showProductComments() {
     });
 }
 
-//Función que muestra los productos relacionados al productos
+//Función que muestra los productos relacionados al producto principal
 function showRelated(array) {
     getJSONData(PRODUCTS_URL).then(resultObj => {
         if (resultObj.status === "ok") {

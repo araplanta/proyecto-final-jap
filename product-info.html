@@ -34,60 +34,65 @@
           seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
       </div>
       <div id="productInformation">
-      <h3 id="productName"></h3>
-      <hr class="my-3">
-      <dl>
-        <dt>Precio</dt>
-        <dd>
-          <p id="productPrice"></p>
-        </dd>
+        <h3 id="productName"></h3>
+        <hr class="my-3">
+        <dl>
+          <dt>Precio</dt>
+          <dd>
+            <p id="productPrice"></p>
+          </dd>
 
-        <dt>Descripción</dt>
-        <dd>
-          <p id="productDescription"></p>
-        </dd>
+          <dt>Descripción</dt>
+          <dd>
+            <p id="productDescription"></p>
+          </dd>
 
-        <dt>Categoría</dt>
-        <dd>
-          <p id="productCategory"></p>
-        </dd>
-        <dt>Cantidad de vendidos</dt>
-        <dd>
-          <p id="productCount"></p>
-        </dd>
-        <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImages">
-          </div>
-        </dd>
-        <dt>Comentarios</dt>
-        <dd>
-          <div>
-            <p id="commentsPublicados"></p>
-          </div>
-          <div class="container bootdey">
-            <div class="col-md-12 bootstrap snippets">
-            <div class="panel">
-              <div class="panel-body">
-                <form>
-                <textarea class="form-control" rows="2" placeholder="¿Qué opinas de este producto?" id="comment"></textarea>
-                <div class="mar-top clearfix">
-                  <label for="stars">Puntuación:</label>
-                  <select id="stars">
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                     <option value="5">5</option>
-                  </select>
-                  <button class="btn btn-sm btn-primary pull-right" type="button" id="enviarComment">Enviar</button>
-                </form>
+          <dt>Categoría</dt>
+          <dd>
+            <p id="productCategory"></p>
+          </dd>
+          <dt>Cantidad de vendidos</dt>
+          <dd>
+            <p id="productCount"></p>
+          </dd>
+          <dt>Imágenes ilustrativas</dt>
+          <dd>
+            <div class="row text-center text-lg-left pt-2" id="productImages">
+            </div>
+          </dd>
+          <dt>Comentarios</dt>
+          <dd>
+            <div>
+              <p id="commentsPublicados"></p>
+            </div>
+            <div class="container bootdey">
+              <div class="col-md-12 bootstrap snippets">
+                <div class="panel">
+                  <div class="panel-body">
+                    <form>
+                      <textarea class="form-control" rows="2" placeholder="¿Qué opinas de este producto?"
+                        id="comment"></textarea>
+                      <div class="mar-top clearfix">
+                        <label for="stars">Puntuación:</label>
+                        <select id="stars">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                        <button class="btn btn-sm btn-primary pull-right" type="button"
+                          id="enviarComment">Enviar</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div><dt>Productos relacionados</dt><div id="relatedContainer" class="card-group"></div></div>
-        </dd>
+            <div>
+          <dt>Productos relacionados</dt>
+          <div id="relatedContainer" class="card-group"></div>
+      </div>
+      </dd>
       </dl>
     </div>
   </main>
