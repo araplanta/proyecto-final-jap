@@ -265,3 +265,9 @@ a.custom-card:hover {
 .mar-top {
   margin-top: 15px;
 }
+
+.btn.btn-secondary {
+  color: rgb(255, 255, 255);
+  border-color: rgb(139, 186, 187);
+  background: rgb(139, 186, 187);
+}

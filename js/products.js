@@ -1,5 +1,4 @@
 //Variables y constantes de utilidad para las funciones de filtrado y muestra de contenido
-var currentproductsArray = [];
 const ORDER_BY_PROD_RELEVANCE = "Rel."
 const ORDER_ASC_BY_PRICE = "1-9";
 const ORDER_DESC_BY_PRICE = "9-1";
