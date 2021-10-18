@@ -15,8 +15,8 @@ function showCartProducts() {
               <input class="form-control quantity" style="width:65px;" type="number" id="productCount-`+ i +`" value="`+ product.count + `" min="1">
             </div>
         </td>
-        <td>`+ product.currency + ` ` + product.count * product.unitCost + `</td>
-        <td class="text-right" id="subtotal"></td>
+        <td>`+ product.currency + ` ` + product.unitCost + `</td>
+        <td class="text-right" id="subtotal">`+ product.currency + ` `+ product.count * product.unitCost + `</td>
         <td><a href="#" class="text-danger"><i class="ri-delete-bin-3-line"></i></a></td>
         </tr>
         `
@@ -29,22 +29,18 @@ function showCartProducts() {
         input.addEventListener('change',quantityChange);
     }
 
-    getSubtotal()
+    getTotal()
 }
+
+
 
 function shippingChange(shipping){
     shippingPer = shipping.value;
     showCartProducts()
 }
 
-function ready(){
-    var quantityInputs =  document.getElementsByClassName('quantity');
-    for (let i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i];
-        input.addEventListener('change',quantityChange);
-        
-    }
-}
+
+
 
 function quantityChange(event){
     var input = event.target;
@@ -52,7 +48,6 @@ function quantityChange(event){
         alert("el valor no puede ser menor a 1")
         input.value = 1
     }
-    
     // se encarga de dividir la id en 2 basado en el caracter -
     splitedID = event.target.id.split("-")
     // se utiliza la posocion 1 ya que la 0 solo tiene la string generica
@@ -60,10 +55,12 @@ function quantityChange(event){
     // se modifica el count del articulo basado en el valor del input
     cartProductsArray.articles[productNumberChange].count = input.value
     showCartProducts()
-    
-
 }
-function getSubtotal(){
+
+
+
+
+function getTotal(){
     let htmlContentToAppend = "";
     document.getElementById("total").innerHTML = htmlContentToAppend;
     let totalProducts = 0;
