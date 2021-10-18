@@ -22,18 +22,18 @@ function showCartProducts() {
         `
         document.getElementById("cartProds").innerHTML += htmlContentToAppend;
     }
-    
+    //Se agrega un event listener para que cuando las cantidades cambien se llame a la función que obtiene el precio
     var quantityInputs =  document.getElementsByClassName('quantity');
     for (let i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i];
         input.addEventListener('change',quantityChange);
     }
 
-    getTotal()
+    showTotal()
 }
 
 
-
+//Función que cambia la variable global del porcentaje del envío según el método de envío seleccionado
 function shippingChange(shipping){
     shippingPer = shipping.value;
     showCartProducts()
@@ -41,26 +41,26 @@ function shippingChange(shipping){
 
 
 
-
+//Función que maneja los cambios de cantidad
 function quantityChange(event){
     var input = event.target;
     if(isNaN(input.value) || input.value <= 0){
         alert("el valor no puede ser menor a 1")
         input.value = 1
     }
-    // se encarga de dividir la id en 2 basado en el caracter -
+    //Se encarga de dividir la id en 2 basado en el caracter - (guión)
     splitedID = event.target.id.split("-")
-    // se utiliza la posocion 1 ya que la 0 solo tiene la string generica
+    //Se utiliza la posición 1 ya que la 0 solo tiene la string genérica
     productNumberChange = splitedID[1]
-    // se modifica el count del articulo basado en el valor del input
+    //Se modifica el count del artículo basado en el valor del input
     cartProductsArray.articles[productNumberChange].count = input.value
     showCartProducts()
 }
 
 
 
-
-function getTotal(){
+//Función que calcula el precio final de la compra
+function showTotal(){
     let htmlContentToAppend = "";
     document.getElementById("total").innerHTML = htmlContentToAppend;
     let totalProducts = 0;
