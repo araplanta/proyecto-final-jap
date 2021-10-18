@@ -93,13 +93,13 @@
                                                                 <label for="shipping">Método de envío:</label>
                                                                 <div class="radio radio-primary">
                                                                   <form>
-                                                                    <input type="radio" id="html" name="fav_language" value="HTML">
+                                                                    <input type="radio" id="html" name="shipping" value="15"onchange="shippingChange(this)">
                                                                     <label for="html">Premium (2-5 días)</label><br>
                                                                   <p>Costo del 15% sobre el subtotal.</p>
-                                                                    <input type="radio" id="css" name="fav_language" value="CSS">
+                                                                    <input type="radio" id="css" name="shipping" value="7"onchange="shippingChange(this)">
                                                                     <label for="css">Express (5-8 días)</label><br>
                                                                   <p>Costo del 7% sobre el subtotal.</p>
-                                                                    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                                                                    <input type="radio" id="javascript" name="shipping" value="5" onchange="shippingChange(this)">
                                                                     <label for="javascript">Standard (12 a 15 días)</label><br>
                                                                   <p>Costo del 5% sobre el subtotal.</p>
                                                                   </form>
@@ -128,19 +128,7 @@
                                                   </div>
                                                     <div class="order-total table-responsive ">
                                                         <table class="table table-borderless text-right">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>Total (productos) :</td>
-                                                                    <td>$1000.00</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Envío :</td>
-                                                                    <td>$0</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="f-w-7 font-18"><h4>Total :</h4></td>
-                                                                    <td class="f-w-7 font-18"><h4>$1180.00</h4></td>
-                                                                </tr>
+                                                            <tbody id = "total">
                                                             </tbody>
                                                         </table>
                                                     </div>
