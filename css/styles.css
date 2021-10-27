@@ -271,3 +271,84 @@ a.custom-card:hover {
   border-color: rgb(139, 186, 187);
   background: rgb(139, 186, 187);
 }
+
+#prod-list-container {
+  margin: 30px 0 30px 0;
+ 
+}
+
+
+#prod-list-container .card-notify-year {
+      position: absolute;
+      right: -10px;
+      top: -20px;
+      background: #ff4444;
+      border-radius: 50%;
+      text-align: center;
+      color: #fff;      
+      font-size: 14px;      
+      width: 50px;
+      height: 50px;    
+      padding: 15px 0 0 0;
+}
+
+
+#prod-list-container .card-detail-badge {      
+      background: #b0d1c7;
+      text-align: center;
+      border-radius: 30px 30px 30px 30px;
+      color: #000;
+      padding: 5px 10px;
+      font-size: 14px;        
+  }
+
+ 
+
+#prod-list-container .card:hover {
+          background: #fff;
+          box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+          border-radius: 4px;
+          transition: all 0.3s ease;
+      }
+
+#prod-list-container .card-image-overlay {
+      font-size: 20px;
+      
+  }
+
+
+#prod-list-container .card-image-overlay span {
+          display: inline-block;              
+      }
+
+
+#prod-list-container .ad-btn {
+      width: 150px;
+      height: 40px;
+      border-radius: 80px;
+      font-size: 16px;
+      line-height: 35px;
+      text-align: center;
+      border: 3px solid #b0d1c7;
+      display: block;
+      text-decoration: none;
+      margin: 20px auto 1px auto;
+      color: #000;
+      overflow: hidden;        
+      position: relative;
+      background-color: #b0d1c7;
+  }
+
+#prod-list-container .ad-btn:hover {
+          background-color: #b0d1c7;
+          color: #1e1717;
+          border: 2px solid #b0d1c7;
+          background: transparent;
+          transition: all 0.3s ease;
+          box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+      }
+
+#prod-list-container .ad-title h5 {
+      text-transform: uppercase;
+      font-size: 18px;
+  }
