@@ -47,7 +47,7 @@ function showProductsList() {
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
 
             htmlContentToAppend += `
-            <div class="col-md-3">
+            <div class="col-md-3 sm-1">
             <div class="card rounded">
                 <div class="card-image">
                     <img class="img-fluid" src="` + product.imgSrc + `" alt="` + product.description + `">

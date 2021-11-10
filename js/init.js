@@ -55,6 +55,7 @@ function getUsuaria() {
       <option class="dropdown-item" id= "logout" value="">Cerrar sesión</option>
     </div>
   </div>`;
+  document.getElementById("nameProfile").innerHTML += usuaria;
 }
 
 //Función que cierra la sesión del usuario en el sitio web, borrando el usuario guardando en localstorage y llevandonos de nuevo a la pantalla
