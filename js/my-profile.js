@@ -1,26 +1,26 @@
-//Variables dentro del perfil
-let firstName = document.getElementById("firstName").value;
-let middleName = document.getElementById("middleName").value;
-let firstLastname = document.getElementById("firstLastname").value;
-let secondLastname = document.getElementById("secondLastname").value;
-let phone = document.getElementById("phone").value;
-let emailAdress = document.getElementById("emailAdress").value;
-let address = document.getElementById("addressProfile").value;
-let city = document.getElementById("city").value;
-let departament = document.getElementById("department").value;
-
 //Función que guarda los datos del perfil
 function saveProfileData() {
-    if((firstName !== "") & (firstLastname !== "") & (phone !== "") & (emailAdress !== "") & (address !== "") & (city !== "") & (departament !== "")){
-        localStorage.setItem("firstname", firstName)
-        localStorage.setItem("middlename", middleName);
-        localStorage.setItem("")
+    let profileData={
+        firstName: document.getElementById("firstName").value,
+        middleName: document.getElementById("middleName").value,
+        firstLastname: document.getElementById("firstLastname").value,
+        secondLastname: document.getElementById("secondLastname").value,
+        phone: document.getElementById("phone").value,
+        emailAddress: document.getElementById("emailAddress").value,
+        address: document.getElementById("addressProfile").value,
+        city: document.getElementById("city").value,
+        department: document.getElementById("department").value
     }
-    else{
-        alert("Debes completar todos los campos obligatorios");
-        }
+    localStorage.setItem("profile", JSON.stringify(profileData));
+    console.log(profileData)
 }
 
+
+//Función que 
+function displayProfileData(){
+    localStorage.getItem("profile");
+    
+}
 
 
 
@@ -37,6 +37,7 @@ function changeProfileData() {
 document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("saveProfile").addEventListener("click", function(event){
         saveProfileData();
+        displayProfileData();
     });
     document.getElementById("editProfile").addEventListener("click", function(event){
         changeProfileData();
