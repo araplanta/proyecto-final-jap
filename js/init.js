@@ -62,6 +62,7 @@ function getUsuaria() {
 //de login
 function logOut() {
   localStorage.removeItem("user");
+  localStorage.removeItem("profile");
   window.location.href = "index.html";
 }
 
