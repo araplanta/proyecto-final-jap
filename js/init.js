@@ -40,7 +40,7 @@ var getJSONData = function (url) {
     });
 }
 //Función que toma el nombre de usuaria/o guardado en local storage y lo agrega al nav del sitio web en forma de drop-down menu
-//con optiones para dirigirge al carrito de compras, al perfil propio y cerrar sesión
+//con opciones para dirige al carrito de compras, al perfil propio y cerrar sesión
 function getUsuaria() {
   let usuaria = localStorage.getItem("user");
   document.getElementById("navi").innerHTML +=
@@ -58,8 +58,8 @@ function getUsuaria() {
   document.getElementById("nameProfile").innerHTML += usuaria;
 }
 
-//Función que cierra la sesión del usuario en el sitio web, borrando el usuario guardando en localstorage y llevandonos de nuevo a la pantalla
-//de login
+//Función que cierra la sesión del usuario en el sitio web, borrando el usuario guardando en localstorage así como los datos del peril del mismo,
+// llevandonos de nuevo a la pantalla de login
 function logOut() {
   localStorage.removeItem("user");
   localStorage.removeItem("profile");

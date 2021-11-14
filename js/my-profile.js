@@ -1,4 +1,4 @@
-//Función que guarda los datos del perfil
+//Función que guarda los datos del perfil e inhabilita la modificación dde los mismos
 function saveProfileData() {
     let profileData = {
         firstName: document.getElementById("firstName").value,
@@ -16,7 +16,7 @@ function saveProfileData() {
 }
 
 
-//Función que muestra los datos del usuario en el perfil e inhabilita los cambios
+//Función que muestra los datos del usuario en el perfil y llama a lockProfileData para que no se puedan modificar los datos
 function displayProfileData() {
     let profileData = JSON.parse(localStorage.getItem("profile"));
     for (var key in profileData) {
@@ -25,7 +25,7 @@ function displayProfileData() {
     lockProfileData(profileData);
 }
 
-
+//Función que inhabilita la modificación de los datos
 function lockProfileData(dataToLock) {
     for (var key in dataToLock) {
         document.getElementById(key).disabled = true;
@@ -46,11 +46,14 @@ function changeProfileData() {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
+    //Se muestran los datos del perfil guardados en localstorge
     displayProfileData();
     document.getElementById("saveProfile").addEventListener("click", function (event) {
+        //Se almacenan los nuevos datos del perfil
         saveProfileData();
     });
     document.getElementById("editProfile").addEventListener("click", function (event) {
+        //Se habilita la modificación de los datos del perfil
         changeProfileData();
     });
 });

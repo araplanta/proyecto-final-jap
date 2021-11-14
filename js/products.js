@@ -38,7 +38,7 @@ function sortProducts(criteria, array) {
 }
 
 
-//Esta función crea los elementos necesarios en el HTML para mostrar el listado de productos de forma estructurada
+//Esta función crea los elementos necesarios en el HTML para mostrar el listado de productos en formato de cards
 function showProductsList() {
     let htmlContentToAppend = "";
     for (let i = 0; i < currentProductsArray.length; i++) {
