@@ -1,4 +1,4 @@
-//Función que guarda los datos del perfil e inhabilita la modificación dde los mismos
+//Función que guarda los datos del perfil e inhabilita la modificación de los mismos
 function saveProfileData() {
     let profileData = {
         firstName: document.getElementById("firstName").value,
