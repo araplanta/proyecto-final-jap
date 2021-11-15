@@ -45,7 +45,7 @@ function shippingChange(shipping){
 function quantityChange(event){
     var input = event.target;
     if(isNaN(input.value) || input.value <= 0){
-        alert("el valor no puede ser menor a 1")
+        alert("El valor no puede ser menor a 1")
         input.value = 1
     }
     //Se encarga de dividir la id en 2 basado en el caracter - (guión)
