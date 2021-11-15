@@ -41,49 +41,6 @@ function shippingChange(shipping){
 }
 
 
-//Función que cambia el valor de la variable global paymentMethod según el método de pago seleccionado
-function paymentMethodSelected(selected){
-    paymentSelected = selected.value
-}
-
-
-//Función que valida que los campos necesarios tengan algún tipo de input dependiendo del método de pago seleccionado
-function validatePaymentMethod(){
-    console.log(paymentSelected)
-    if(paymentSelected =="card"){
-        let cardNumber = document.getElementById("cardNumber").value;
-        let cvc = document.getElementById("cvc").value;
-        let expiration = document.getElementById("expiration").value;
-        if((cardNumber =="") || (cvc =="") || (expiration == "")){
-            alert("Debes completar los datos de su método de pago")
-            return
-        }
-    }
-    if(paymentSelected == "bank"){
-        let accountNumber = document.getElementById("accountNumber").value;
-        if(accountNumber ==""){
-            alert("Debes completar los datos de su método de pago")
-            return
-        } 
-    }
-    //Solo si los campos se han completado se permitirá cerrar el modal
-    $("#paymentModal").modal('hide');  
-}
-
-//Función que controla que la dirección de envío se haya ingresado correctamente
-function validateAddress(){
-    let street = document.getElementById("streetAddress").value;
-    let number = document.getElementById("numberAddress").value;
-    let corner = document.getElementById("cornerAddress").value;
-    if((street !== "") && (number !== "") && (corner !== "")){
-        window.location.href="cart.html"
-    }
-    else{
-        alert("No olvides colocar la dirección de envío")
-    }
-}
-
-
 //Función que maneja los cambios de cantidad
 function quantityChange(event){
     var input = event.target;
@@ -134,6 +91,49 @@ function showTotal(){
         <td class="f-w-7 font-18"><h4>$`+total+`</h4></td>
     </tr>`;
     document.getElementById("total").innerHTML = htmlContentToAppend;
+}
+
+
+//Función que cambia el valor de la variable global paymentMethod según el método de pago seleccionado
+function paymentMethodSelected(selected){
+    paymentSelected = selected.value
+}
+
+
+//Función que valida que los campos necesarios tengan algún tipo de input dependiendo del método de pago seleccionado
+function validatePaymentMethod(){
+    console.log(paymentSelected)
+    if(paymentSelected =="card"){
+        let cardNumber = document.getElementById("cardNumber").value;
+        let cvc = document.getElementById("cvc").value;
+        let expiration = document.getElementById("expiration").value;
+        if((cardNumber =="") || (cvc =="") || (expiration == "")){
+            alert("Debes completar los datos de su método de pago")
+            return
+        }
+    }
+    if(paymentSelected == "bank"){
+        let accountNumber = document.getElementById("accountNumber").value;
+        if(accountNumber ==""){
+            alert("Debes completar los datos de su método de pago")
+            return
+        } 
+    }
+    //Solo si los campos se han completado se permitirá cerrar el modal
+    $("#paymentModal").modal('hide');  
+}
+
+//Función que controla que la dirección de envío se haya ingresado correctamente
+function validateAddress(){
+    let street = document.getElementById("streetAddress").value;
+    let number = document.getElementById("numberAddress").value;
+    let corner = document.getElementById("cornerAddress").value;
+    if((street !== "") && (number !== "") && (corner !== "")){
+        window.location.href="cart.html"
+    }
+    else{
+        alert("No olvides colocar la dirección de envío")
+    }
 }
 
 
