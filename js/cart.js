@@ -1,5 +1,6 @@
 let cartProductsArray;
 let shippingPer = 0;
+let paymentSelected = "card"
 //Función para mostrar la información de carrito dentro de la tabla de productos
 function showCartProducts() {
     let htmlContentToAppend = "";
@@ -39,6 +40,30 @@ function shippingChange(shipping){
     showCartProducts()
 }
 
+function paymentMethodSelected(selected){
+    paymentSelected = selected.value
+}
+
+function validatePaymentMethod(){
+    console.log(paymentSelected)
+    if(paymentSelected =="card"){
+        let cardNumber = document.getElementById("cardNumber").value;
+        let cvc = document.getElementById("cvc").value;
+        let expiration = document.getElementById("expiration").value;
+        if((cardNumber =="") || (cvc =="") || (expiration == "")){
+            alert("Debes completar los datos de su método de pago")
+            return
+        }
+    }
+    if(paymentSelected == "bank"){
+        let accountNumber = document.getElementById("accountNumber").value;
+        if(accountNumber ==""){
+            alert("Debes completar los datos de su método de pago")
+            return
+        } 
+    }
+    $("#paymentModal").modal('hide');  
+}
 
 
 //Función que maneja los cambios de cantidad
@@ -94,6 +119,20 @@ function showTotal(){
 }
 
 
+//Función que controla que la dirección de envío se haya ingresado correctamente
+function validateAddress(){
+    let street = document.getElementById("streetAddress").value;
+    let number = document.getElementById("numberAddress").value;
+    let corner = document.getElementById("cornerAddress").value;
+    if((street !== "") && (number !== "") && (corner !== "")){
+        window.location.href="cart.html"
+    }
+    else{
+        alert("No olvides colocar la dirección de envío")
+    }
+}
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -105,6 +144,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
             //Muestra los productos dentro del carrito
             showCartProducts();
         }
+    });    $("#paymentButton").click(function(){
+        $("#paymentModal").modal();
+    });
+    document.getElementById("buy").addEventListener("click", function (event) {
+        //
+        validateAddress();
+        validatePaymentMethod();
+    });
+    document.getElementById("savePaymentMethod").addEventListener("click", function (event) {
+        //
+        validatePaymentMethod();
     });
 });
 

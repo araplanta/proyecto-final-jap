@@ -44,111 +44,166 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
     </div>
   </nav>
-  <div class="container">                
-    <div class="contentbar">                
-            <!-- Start row -->
-            <div class="row">
-                <!-- Start col -->
-                <div class="col-md-12 col-lg-12 col-xl-12">
-                    <div class="card m-b-30">
-                        <div class="card-header">
-                            <h5 class="card-title">Mi carrito</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-10 col-xl-8">
-                                    <div class="cart-container">
-                                        <div class="cart-head">
-                                            <div class="table-responsive">
-                                                <table class="table table-borderless">
-                                                    <thead>
-                                                        <tr> 
-                                                            <th scope="col">Foto</th>                                           
-                                                            <th scope="col">Producto</th>
-                                                            <th scope="col">Cantidad</th>
-                                                            <th scope="col">Precio</th>
-                                                            <th scope="col" class="text-right">Subtotal</th>
-                                                            <th scope="col"></th>                                                          
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="cartProds">
-                                                       
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="cart-body">
-                                            <div class="row">
-                                                <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
-                                                    <div class="order-note">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                  <label for="payment">Método de pago:</label>
-                                                                  <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-block btn-round">Tarjeta de crédito/debito</button>
-                                                                  <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-block btn-round">Transferencia bancaria</button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="shipping">Método de envío:</label>
-                                                                <div class="radio radio-primary">
-                                                                  <form>
-                                                                    <input type="radio" id="html" name="shipping" value="15"onchange="shippingChange(this)">
-                                                                    <label for="html">Premium (2-5 días)</label><br>
-                                                                  <p>Costo del 15% sobre el subtotal.</p>
-                                                                    <input type="radio" id="css" name="shipping" value="7"onchange="shippingChange(this)">
-                                                                    <label for="css">Express (5-8 días)</label><br>
-                                                                  <p>Costo del 7% sobre el subtotal.</p>
-                                                                    <input type="radio" id="javascript" name="shipping" value="5" onchange="shippingChange(this)">
-                                                                    <label for="javascript">Standard (12 a 15 días)</label><br>
-                                                                  <p>Costo del 5% sobre el subtotal.</p>
-                                                                  </form>
-                                                                  </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
-                                                  <div id="adress">
-                                                    <label for="adress">Dirección:</label>
-                                                    <div class="row">
-                                                      <div class="col-md-7 mb-3">
-                                                        <label for="streetAdress">Calle</label>
-                                                        <input type="text" class="form-control" id="streetAdress" placeholder="" value="">
-                                                      </div>
-                                                      <div class="col-md-4 mb-3">
-                                                          <label for="numberAdress">Número</label>
-                                                          <input type="number" class="form-control" id="snumberAdress" placeholder="" value="">
-                                                      </div><br>
-                                                      <div class="col-md-7 mb-3">
-                                                        <label for="cornerAdress">Esquina</label>
-                                                        <input type="text" class="form-control" id="cornerAdress" placeholder="" value="">
-                                                    </div>
-                                                  </div>
-                                                  </div>
-                                                    <div class="order-total table-responsive ">
-                                                        <table class="table table-borderless text-right">
-                                                            <tbody id = "total">
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cart-footer text-right">
-                                            <a href="#" class="btn btn-success my-1">Finalizar compra<i class="ri-arrow-right-line ml-2"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End col -->
+  <div class="container">
+    <div class="contentbar">
+      <!-- Start row -->
+      <div class="row">
+        <!-- Start col -->
+        <div class="col-md-12 col-lg-12 col-xl-12">
+          <div class="card m-b-30">
+            <div class="card-header">
+              <h5 class="card-title">Mi carrito</h5>
             </div>
-            <!-- End row -->
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                  <div class="cart-container">
+                    <div class="cart-head">
+                      <div class="table-responsive">
+                        <table class="table table-borderless">
+                          <thead>
+                            <tr>
+                              <th scope="col">Foto</th>
+                              <th scope="col">Producto</th>
+                              <th scope="col">Cantidad</th>
+                              <th scope="col">Precio</th>
+                              <th scope="col" class="text-right">Subtotal</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody id="cartProds">
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="cart-body">
+                      <div class="row">
+                        <div class="col-md-12 order-2 order-lg-1 col-lg-5 col-xl-6">
+                          <div class="order-note">
+                            <form>
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <label for="payment">Método de pago:</label>
+                                  <!-- Button trigger modal -->
+                                  <button type="button" class="btn mb-2 mb-md-0 btn-secondary btn-block btn-round"
+                                    data-toggle="modal data-target=" #staticBackdrop" id="paymentButton">Elige tu método
+                                    de pago</button>
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="paymentModal" data-backdrop="static" data-keyboard="false"
+                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="staticBackdropLabel">Elige tu método de pago</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <span class="form-group">
+                                            <form id="paymentMethod">
+                                              <input type="radio" id="paymentCard" name="payment" value="card" checked onchange="paymentMethodSelected(this)">
+                                              <label for="paymentCard">Tarjeta de crédito</label><br>
+                                              <hr>
+                                              <div class="row">
+                                                <div class="col-md-4 mb-3">
+                                                  <label>Número de tarjeta</label>
+                                                  <input type="number" class="form-control" id="cardNumber" min="1">
+                                                </div>
+                                                <div class="col-md-2 mb-2">
+                                                  <label>CVC</label>
+                                                  <input type="number" class="form-control" id="cvc" min="1">
+                                                </div>
+                                                <div class="col-md-5 mb-3">
+                                                  <label>Vencimiento</label>
+                                                  <input type="month" class="form-control" id="expiration">
+                                                </div>
+                                              </div>
+                                              <br>
+                                              <input type="radio" id="paymentBank" name="payment" value="bank" onchange="paymentMethodSelected(this)">
+                                              <label for="paymentBank">Transferencia bancaria</label><br>
+                                              <hr>
+                                              <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                  <label>Número de cuenta</label>
+                                                  <input type="number" class="form-control" id="accountNumber" min="1">
+                                                </div>
+                                              </div>
+                                            </form>
+                                          </span>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" id="savePaymentMethod">Guardar</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="shipping">Método de envío:</label>
+                                <div class="radio radio-primary">
+                                  <form>
+                                      <input type="radio" id="html" name="shipping" value="15"
+                                      onchange="shippingChange(this)" checked>
+                                      <label for="html">Premium (2-5 días)</label><br>
+                                    <p>Costo del 15% sobre el subtotal.</p>
+                                      <input type="radio" id="css" name="shipping" value="7"
+                                      onchange="shippingChange(this)">
+                                      <label for="css">Express (5-8 días)</label><br>
+                                    <p>Costo del 7% sobre el subtotal.</p>
+                                      <input type="radio" id="javascript" name="shipping" value="5"
+                                      onchange="shippingChange(this)">
+                                      <label for="javascript">Standard (12 a 15 días)</label><br>
+                                    <p>Costo del 5% sobre el subtotal.</p>
+                                  </form>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="col-md-12 order-1 order-lg-2 col-lg-7 col-xl-6">
+                          <div id="adress">
+                            <label for="adress">Dirección:</label>
+                            <div class="row">
+                              <div class="col-md-7 mb-3">
+                                <label for="streetAddress">Calle</label>
+                                <input type="text" class="form-control" id="streetAddress">
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                <label for="numberAddress">Número</label>
+                                <input type="number" class="form-control" id="numberAddress">
+                              </div><br>
+                              <div class="col-md-7 mb-3">
+                                <label for="cornerAddress">Esquina</label>
+                                <input type="text" class="form-control" id="cornerAddress">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="order-total table-responsive ">
+                            <table class="table table-borderless text-right">
+                              <tbody id="total">
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cart-footer text-right">
+                      <button class="btn btn-success my-1" id="buy">Finalizar compra<i class="ri-arrow-right-line ml-2"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
+        <!-- End col -->
+      </div>
+      <!-- End row -->
+    </div>
+  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
