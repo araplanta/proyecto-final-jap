@@ -1,6 +1,7 @@
 let cartProductsArray;
 let shippingPer = 0;
 let paymentSelected = "card"
+
 //Función para mostrar la información de carrito dentro de la tabla de productos
 function showCartProducts() {
     let htmlContentToAppend = "";
@@ -29,7 +30,6 @@ function showCartProducts() {
         var input = quantityInputs[i];
         input.addEventListener('change',quantityChange);
     }
-
     showTotal()
 }
 
@@ -40,10 +40,14 @@ function shippingChange(shipping){
     showCartProducts()
 }
 
+
+//Función que cambia el valor de la variable global paymentMethod según el método de pago seleccionado
 function paymentMethodSelected(selected){
     paymentSelected = selected.value
 }
 
+
+//Función que valida que los campos necesarios tengan algún tipo de input dependiendo del método de pago seleccionado
 function validatePaymentMethod(){
     console.log(paymentSelected)
     if(paymentSelected =="card"){
@@ -62,7 +66,21 @@ function validatePaymentMethod(){
             return
         } 
     }
+    //Solo si los campos se han completado se permitirá cerrar el modal
     $("#paymentModal").modal('hide');  
+}
+
+//Función que controla que la dirección de envío se haya ingresado correctamente
+function validateAddress(){
+    let street = document.getElementById("streetAddress").value;
+    let number = document.getElementById("numberAddress").value;
+    let corner = document.getElementById("cornerAddress").value;
+    if((street !== "") && (number !== "") && (corner !== "")){
+        window.location.href="cart.html"
+    }
+    else{
+        alert("No olvides colocar la dirección de envío")
+    }
 }
 
 
@@ -119,21 +137,6 @@ function showTotal(){
 }
 
 
-//Función que controla que la dirección de envío se haya ingresado correctamente
-function validateAddress(){
-    let street = document.getElementById("streetAddress").value;
-    let number = document.getElementById("numberAddress").value;
-    let corner = document.getElementById("cornerAddress").value;
-    if((street !== "") && (number !== "") && (corner !== "")){
-        window.location.href="cart.html"
-    }
-    else{
-        alert("No olvides colocar la dirección de envío")
-    }
-}
-
-
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -148,12 +151,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
         $("#paymentModal").modal();
     });
     document.getElementById("buy").addEventListener("click", function (event) {
-        //
+        //Se validan que los campos estén completos para poder proceder con la compra
         validateAddress();
         validatePaymentMethod();
     });
     document.getElementById("savePaymentMethod").addEventListener("click", function (event) {
-        //
+        //Se validan que los campos estén validados para poder cerrar el modal de Método de pago
         validatePaymentMethod();
     });
 });
