@@ -44,7 +44,7 @@ var getJSONData = function (url) {
 function getUsuaria() {
   let usuaria = localStorage.getItem("user");
   document.getElementById("navi").innerHTML +=
-    `<div class="dropdown show">
+    `<div class="dropdown show ml-auto">
     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     ${usuaria}
     </a>

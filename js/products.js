@@ -48,23 +48,15 @@ function showProductsList() {
 
             htmlContentToAppend += `
             <div class="col-md-3 sm-1">
-            <div class="card rounded">
-                <div class="card-image">
-                    <img class="img-fluid" src="` + product.imgSrc + `" alt="` + product.description + `">
-                </div>
-                <div class="card-image-overlay m-auto">
-                    <span class="card-detail-badge">` + product.currency + ` $` + product.cost + `</span>
-                </div>
-                <div class="card-body text-center">
-                    <div class="ad-title m-auto">
-                        <h5>` + product.name + `</h5>
-                        <p  class="small">` + product.soldCount + ` vendidos</p>
-                        <p class="justify"> ` + product.description + ` </p>
-                    </div>
-                    <a class="ad-btn" href="product-info.html">Ver más</a>
-                </div>
-            </div>
-        </div>
+            <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
+              <img class="img-fluid"  src="` + product.imgSrc + `" alt="` + product.description + `">
+              <h4 class="m-3">` + product.name + `<span class="small"> (`+ product.soldCount + ` vendidos) </span> </h4>
+              <div class="card-body">
+                <p  class="small font-weight-bold">` + product.currency + ` $` + product.cost + `</p>
+                <p class="card-text justify"> ` + product.description + ` </p>
+              </div>
+            </a>
+          </div>
             `
         }
 

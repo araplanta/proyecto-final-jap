@@ -352,3 +352,7 @@ a.custom-card:hover {
       text-transform: uppercase;
       font-size: 18px;
   }
+
+  #navi ul {
+    left: auto;
+  }
